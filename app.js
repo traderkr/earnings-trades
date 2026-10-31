@@ -1,4 +1,4 @@
-const $=s=>document.querySelector(s),usd=n=>"$"+n.toFixed(2),DAYS=["Mon","Tue","Wed","Thu","Fri"];
+const _nul=document.createElement("div"),$=s=>document.querySelector(s)||_nul,usd=n=>"$"+n.toFixed(2),DAYS=["Mon","Tue","Wed","Thu","Fri"];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 let D,day="All",sortK="imp";const impD=n=>n.close*n.imp/100,ratio=n=>n.hist?n.imp/n.hist:null;
 function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1600)}
@@ -27,7 +27,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-share],[da
 if(b.dataset.share)share(u+"#"+b.dataset.share,b.dataset.share.slice(2)+" earnings implied move");else if(b.dataset.copy){navigator.clipboard?.writeText(u+"#"+b.dataset.copy).then(()=>toast("Link copied"),()=>prompt("Copy link:",u+"#"+b.dataset.copy))}
 else if(b.dataset.calc){$("#tk").value=b.dataset.calc;calc();$("#calc").scrollIntoView({behavior:"smooth"})}else if(b.dataset.jump){e.preventDefault();jump(b.dataset.jump)}});
 const tabs=[...document.querySelectorAll(".tabs a")];function setTab(){let cur="feed";tabs.forEach(a=>{const s=document.querySelector(a.getAttribute("href"));if(s&&s.getBoundingClientRect().top<innerHeight*.4)cur=a.getAttribute("href").slice(1)});tabs.forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+cur))}addEventListener("scroll",setTab,{passive:true});
-fetch("data.json").then(r=>r.json()).then(d=>{D=d;$("#week").textContent=d.week;$("#asof").textContent=d.asOf;
+fetch("data.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(d=>{D=d;$("#week").textContent=d.week;$("#asof").textContent=d.asOf;
 $("#stories").innerHTML=[...d.names].sort((a,b)=>DAYS.indexOf(a.day)-DAYS.indexOf(b.day)||b.imp-a.imp).map(n=>`<button class="story" data-jump="${n.t}"><div class="ring"><span>${esc(n.t)}</span></div><small>${n.day} ${n.tm}</small></button>`).join("");
 feed();moves();$("#tk").innerHTML=d.names.map(n=>`<option value="${n.t}">${n.t} — ${esc(n.co)}</option>`).join("");$("#tk").value="AEHR";$("#tk").onchange=calc;$("#loss").oninput=calc;calc();
 $("#flags").innerHTML=d.names.filter(n=>n.flag).map(n=>`<li><b>${n.t}:</b> ${esc(n.flag)}</li>`).join("")+"<li>Tue–Fri revenue consensus wasn't sourced, so it shows n/a.</li>";
@@ -35,4 +35,5 @@ const a=d.names.find(n=>n.t=="AEHR"),ad=impD(a);$("#aehrM").innerHTML=`<div clas
 $("#score").innerHTML=d.aehr.scorecard.map(r=>`<div class="sc"><div class="h"><span>${esc(r[0])}</span><span class="${r[4].startsWith("+")?"up":r[4].startsWith("–")?"dn":""}">${esc(r[4])} <span class="muted small">vs ${esc(r[5])} implied</span></span></div>EPS ${esc(r[1])}<br>Rev ${esc(r[2])}${r[3]?`<br><span class="muted">${esc(r[3])}</span>`:""}</div>`).join("");
 $("#aehrSetup").textContent=d.aehr.setup;$("#val").innerHTML=d.aehr.valuation.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");$("#risks").textContent=d.aehr.risks;
 $("#sources").innerHTML=d.sources.map(([t,u])=>`<li><a href="${esc(u)}" rel="noopener">${esc(t)}</a></li>`).join("");setTab();
-if(location.hash.startsWith("#t-"))setTimeout(()=>jump(location.hash.slice(3)),50)}).catch(e=>{document.body.insertAdjacentHTML("afterbegin",`<p style="color:red">Failed to load data.json: ${esc(e)}</p>`)});
+if(location.hash.startsWith("#t-"))setTimeout(()=>jump(location.hash.slice(3)),50)}).catch(e=>{console.error(e);banner()});
+function banner(){if(document.getElementById("errb"))return;const b=document.createElement("div");b.id="errb";b.className="callout warn small";b.innerHTML='Something didn\'t load. <a href="#" onclick="location.reload();return false">Tap to refresh</a>.';(document.querySelector("main")||document.body).prepend(b)}
