@@ -14,3 +14,5 @@ input,select{background:var(--card);color:var(--fg);border:1px solid var(--bd);b
 .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0}.m{background:var(--card);border-radius:8px;padding:10px}.m b{font-size:1.4rem;display:block}.m.neg b{color:#d04040}
 dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;margin:6px 0}dt{font-weight:600}dd{margin:0}
 @media(max-width:600px){dl{grid-template-columns:1fr}h1{font-size:1.3rem}}
+.note{background:var(--card);border-radius:8px;padding:12px 16px;margin:10px 0}.note h3{margin:.2em 0}.note a{color:var(--acc)}
+.tag{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:0 8px;font-size:.75rem;margin-left:6px}

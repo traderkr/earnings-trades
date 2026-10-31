@@ -1,9 +1,10 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Earnings Trades & Implied Moves</title><link rel="stylesheet" href="style.css"></head><body>
 <header><h1>Earnings Trades &amp; Implied Moves — <span id="week"></span></h1><p class="muted" id="asof"></p>
-<nav><a href="#sched">Schedule</a><a href="#table">Table</a><a href="#chart">Chart</a><a href="#calc">Sizing</a><a href="#when">When to trade</a><a href="#aehr">AEHR</a><a href="#src">Sources</a></nav></header>
+<nav><a href="#notes"><b>Notes</b></a><a href="#sched">Schedule</a><a href="#table">Table</a><a href="#chart">Chart</a><a href="#calc">Sizing</a><a href="#when">When to trade</a><a href="#aehr">AEHR</a><a href="#src">Sources</a></nav></header>
 <main>
 <div class="callout"><b>Summary.</b> <span id="summary"></span> Implied moves are option-market estimates of move <i>size</i> and do not predict direction. Not investment advice.</div>
+<section id="notes"><h2>Notes <a class="small" href="notes.html">(all notes)</a></h2><div id="notesList"></div></section>
 <section id="sched"><h2>By-day schedule</h2><div id="days" class="days"></div></section>
 <section id="table"><h2>Watchlist</h2>
 <div class="controls"><div class="seg" id="viewSeg"></div><div class="seg" id="daySeg"></div></div>
@@ -25,4 +26,4 @@
 <div class="callout"><b>Valuation view</b><dl id="val"></dl></div><div class="callout bad"><b>Risks.</b> <span id="risks"></span></div></section>
 <section id="src"><h2>Sources</h2><ul id="sources"></ul>
 <p class="muted small">Not investment advice. Implied moves come from at-the-money straddle mid prices (CBOE delayed data, Oct 30) and do not predict direction. Data may contain errors; verify before trading.</p></section>
-</main><script src="app.js"></script></body></html>
+</main><script src="notes.js"></script><script src="app.js"></script><script>renderNotes(document.getElementById("notesList"),5)</script></body></html>
