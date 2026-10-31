@@ -5,7 +5,13 @@ h=h.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,(m,l,u)=>/^(https?:\/\/|[\w.\-\/]+(#[\w
 return h}
 function body(b){return String(b||"").split(/\n\s*\n/).map(p=>{const ls=p.split("\n");if(ls.every(l=>l.trim().startsWith("- ")))return"<ul>"+ls.map(l=>"<li>"+inline(l.trim().slice(2))+"</li>").join("")+"</ul>";
 let out="",buf=[];ls.forEach(l=>{if(l.trim().startsWith("- ")){if(buf.length){out+="<p>"+buf.map(inline).join("<br>")+"</p>";buf=[]}out+="<ul><li>"+inline(l.trim().slice(2))+"</li></ul>"}else buf.push(l)});if(buf.length)out+="<p>"+buf.map(inline).join("<br>")+"</p>";return out.replace(/<\/ul><ul>/g,"")}).join("")}
-window.renderNotes=function(el,limit){if(!el)return;fetch("notes.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(ns=>{ns=[...ns].sort((a,b)=>String(b.date).localeCompare(String(a.date)));const show=limit?ns.slice(0,limit):ns;
-el.innerHTML=show.length?show.map(n=>{const id="note-"+slug(n.date)+"-"+slug(n.title);return`<article class="note" id="${id}"><div class="muted small"><a href="notes.html#${id}">${esc(n.date)}</a>${n.ticker?` <span class="tag">${esc(n.ticker)}</span>`:""}</div><h3>${esc(n.title)}</h3>${body(n.body)}</article>`}).join("")+(limit&&ns.length>limit?`<p><a href="notes.html">All ${ns.length} notes →</a></p>`:""):"<p class='muted'>No notes yet.</p>";
+let _ns=null,_el=null,_lim=0;
+function nmatch(x,q){if(!q)return 1;const t=String(x.ticker||"").toLowerCase();if(t&&t==q)return 3;if(t&&t.startsWith(q))return 2;return (x.title+" "+x.ticker+" "+x.body+" "+x.date).toLowerCase().includes(q)?1:0}
+function draw(){if(!_el||!_ns)return;const q=(window.searchQ||"").trim().toLowerCase();let ns=_ns.map(x=>[x,nmatch(x,q)]).filter(a=>a[1]>0).sort((a,b)=>b[1]-a[1]||String(b[0].date).localeCompare(String(a[0].date))).map(a=>a[0]);
+const show=_lim?ns.slice(0,_lim):ns;window.notesCount=ns.length;
+_el.innerHTML=show.length?show.map(n=>{const id="note-"+slug(n.date)+"-"+slug(n.title);return`<article class="note" id="${id}"><div class="muted small"><a href="notes.html#${id}">${esc(n.date)}</a>${n.ticker?` <span class="tag">${esc(n.ticker)}</span>`:""}</div><h3>${esc(n.title)}</h3>${body(n.body)}</article>`}).join("")+(_lim&&ns.length>_lim?`<p><a href="notes.html">All ${ns.length} notes →</a></p>`:""):`<p class='muted'>${q?"No matching notes.":"No notes yet."}</p>`;
+window.onNotesDrawn&&window.onNotesDrawn()}
+window.renderNotes=function(el,limit){if(!el)return;_el=el;_lim=limit||0;fetch("notes.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(ns=>{_ns=ns;draw();
 if(location.hash){const t=document.getElementById(location.hash.slice(1));t&&t.scrollIntoView()}}).catch(e=>{console.error(e);el.innerHTML="<p class='muted small'>Notes didn't load. Pull to refresh.</p>"})};
+window.redrawNotes=draw;
 window._notesBody=body})();

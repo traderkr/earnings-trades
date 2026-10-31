@@ -1,6 +1,10 @@
 const _nul=document.createElement("div"),$=s=>document.querySelector(s)||_nul,usd=n=>"$"+n.toFixed(2),DAYS=["Mon","Tue","Wed","Thu","Fri"];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let D,day="All",sortK="imp";const impD=n=>n.close*n.imp/100,ratio=n=>n.hist?n.imp/n.hist:null;
+let stories=()=>{},D,day="All",sortK="imp";function rank(n){const q=(window.searchQ||"").trim().toLowerCase();if(!q)return 1;const t=n.t.toLowerCase();if(t==q)return 5;if(t.startsWith(q))return 4;if(n.co.toLowerCase().startsWith(q))return 3;
+const hay=[n.t,n.co,n.day,n.date,n.day+" "+n.date,n.tm,n.drv,n.flag||"",n.eps,n.rev,{Mon:"monday",Tue:"tuesday",Wed:"wednesday",Thu:"thursday",Fri:"friday"}[n.day],n.tm=="BMO"?"before market open":"after market close"].join(" | ").toLowerCase();
+return hay.includes(q)?(n.tm.toLowerCase()==q?2:1):0}
+const byRank=(a,b)=>rank(b)-rank(a);
+const impD=n=>n.close*n.imp/100,ratio=n=>n.hist?n.imp/n.hist:null;
 function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1600)}
 async function share(url,title){try{if(navigator.share){await navigator.share({title,url});return}}catch(e){return}try{await navigator.clipboard.writeText(url);toast("Link copied")}catch(e){prompt("Copy link:",url)}}
 window.shareLink=share;
@@ -14,11 +18,11 @@ ${n.flag?`<div class="flag">⚠ ${esc(n.flag)}</div>`:""}
 <div class="cap"><b>${esc(n.t)}</b>${esc(n.drv)}<div class="eps">EPS est ${esc(n.eps)} · Rev est ${esc(n.rev)}</div></div>
 <div class="act"><button data-share="${id}" aria-label="Share">${ICON_SHARE}Share</button><button data-copy="${id}" aria-label="Copy link">${ICON_LINK}Copy</button><button data-calc="${esc(n.t)}" aria-label="Size it">${ICON_CALC}Size</button></div></article>`}
 function chips(el,opts,cur,cb){el.innerHTML=opts.map(([v,l])=>`<button class="chip${v==cur?" on":""}" data-v="${v}">${l}</button>`).join("");el.querySelectorAll("button").forEach(b=>b.onclick=()=>cb(b.dataset.v))}
-function feed(){chips($("#dayChips"),[["All","All week"],...DAYS.map(d=>[d,d+" "+(D.names.find(n=>n.day==d)?.date||"")])],day,v=>{day=v;feed()});
-const list=D.names.filter(n=>day=="All"||n.day==day).sort((a,b)=>DAYS.indexOf(a.day)-DAYS.indexOf(b.day)||(a.tm=="BMO"?-1:1)-(b.tm=="BMO"?-1:1)||b.imp-a.imp);$("#posts").innerHTML=list.map(post).join("")}
+function feed(){chips($("#dayChips"),[["All","All week"],...DAYS.map(d=>[d,d+" "+(D.names.find(n=>n.day==d)?.date||"")])],day,v=>{day=v;feed();moves();stories()});
+const list=D.names.filter(n=>(day=="All"||n.day==day)&&rank(n)>0).sort((a,b)=>byRank(a,b)||DAYS.indexOf(a.day)-DAYS.indexOf(b.day)||(a.tm=="BMO"?-1:1)-(b.tm=="BMO"?-1:1)||b.imp-a.imp);$("#posts").innerHTML=list.map(post).join("");status(list.length)}
 function moves(){chips($("#sortChips"),[["imp","Biggest implied"],["ratio","Implied ÷ hist"],["date","By date"]],sortK,v=>{sortK=v;moves()});
-const l=[...D.names].sort((a,b)=>sortK=="imp"?b.imp-a.imp:sortK=="ratio"?(ratio(b)??-1)-(ratio(a)??-1):DAYS.indexOf(a.day)-DAYS.indexOf(b.day)||b.imp-a.imp),mx=Math.max(...l.map(n=>n.imp));
-$("#moveList").innerHTML=l.map(n=>{const r=ratio(n);return`<div class="mv"><a href="#t-${n.t}" data-jump="${n.t}"><b>${n.t}${n.flag?" ⚠":""}</b></a><div><div class="bar" style="width:${n.imp/mx*100}%"></div><span class="muted small">${n.day} ${n.tm} · hist ${n.hist?"±"+n.hist.toFixed(1)+"%":"n/a"}</span></div><div class="r"><b>±${n.imp.toFixed(1)}%</b><br>${r?`<span class="pill ${r>=1.3?"rich":r<=.85?"cheap":""}">${r.toFixed(2)}×</span>`:'<span class="muted small">n/a</span>'}</div></div>`}).join("")}
+const l=D.names.filter(n=>(day=="All"||n.day==day)&&rank(n)>0).sort((a,b)=>byRank(a,b)||sortK=="imp"?b.imp-a.imp:sortK=="ratio"?(ratio(b)??-1)-(ratio(a)??-1):DAYS.indexOf(a.day)-DAYS.indexOf(b.day)||b.imp-a.imp),mx=Math.max(1,...l.map(n=>n.imp));
+$("#moveList").innerHTML=l.length?"":`<p class="muted small">No matching tickers.</p>`;$("#moveList").innerHTML+=l.map(n=>{const r=ratio(n);return`<div class="mv"><a href="#t-${n.t}" data-jump="${n.t}"><b>${n.t}${n.flag?" ⚠":""}</b></a><div><div class="bar" style="width:${n.imp/mx*100}%"></div><span class="muted small">${n.day} ${n.tm} · hist ${n.hist?"±"+n.hist.toFixed(1)+"%":"n/a"}</span></div><div class="r"><b>±${n.imp.toFixed(1)}%</b><br>${r?`<span class="pill ${r>=1.3?"rich":r<=.85?"cheap":""}">${r.toFixed(2)}×</span>`:'<span class="muted small">n/a</span>'}</div></div>`}).join("")}
 function calc(){const n=D.names.find(x=>x.t==$("#tk").value),ml=+$("#loss").value||0,d=impD(n),sh=d>0?Math.floor(ml/d):0;
 $("#metrics").innerHTML=`<div class="m"><b>${sh}</b>Shares<span>max loss ÷ ${usd(d)} implied</span></div><div class="m"><b>${usd(sh*n.close)}</b>Position value<span>at ${usd(n.close)}</span></div><div class="m neg"><b>–${usd(sh*d*1.5)}</b>Stress at 1.5×<span>a ±${(n.imp*1.5).toFixed(1)}% gap</span></div><div class="m"><b>${usd(d*100)}</b>≈ Straddle/contract<span>implied $ × 100</span></div>`;
 $("#optnote").innerHTML=`<b>Options note.</b> A straddle costs about the implied $ per share (≈ ${usd(d*100)} per contract for ${esc(n.t)}). After the print, vol crush deflates premium right away. If the stock moves less than the implied move, the straddle loses, and short-dated premium can go to zero. Gaps can blow through stops, so size for the stress line rather than the expected move.${n.flag?"<br>⚠ "+esc(n.flag):""}`}
@@ -28,7 +32,7 @@ if(b.dataset.share)share(u+"#"+b.dataset.share,b.dataset.share.slice(2)+" earnin
 else if(b.dataset.calc){$("#tk").value=b.dataset.calc;calc();$("#calc").scrollIntoView({behavior:"smooth"})}else if(b.dataset.jump){e.preventDefault();jump(b.dataset.jump)}});
 const tabs=[...document.querySelectorAll(".tabs a")];function setTab(){let cur="feed";tabs.forEach(a=>{const s=document.querySelector(a.getAttribute("href"));if(s&&s.getBoundingClientRect().top<innerHeight*.4)cur=a.getAttribute("href").slice(1)});tabs.forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+cur))}addEventListener("scroll",setTab,{passive:true});
 fetch("data.json?v="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(d=>{D=d;$("#week").textContent=d.week;$("#asof").textContent=d.asOf;
-$("#stories").innerHTML=[...d.names].sort((a,b)=>DAYS.indexOf(a.day)-DAYS.indexOf(b.day)||b.imp-a.imp).map(n=>`<button class="story" data-jump="${n.t}"><div class="ring"><span>${esc(n.t)}</span></div><small>${n.day} ${n.tm}</small></button>`).join("");
+stories=()=>{$("#stories").innerHTML=D.names.filter(n=>(day=="All"||n.day==day)&&rank(n)>0).sort((a,b)=>byRank(a,b)||DAYS.indexOf(a.day)-DAYS.indexOf(b.day)||b.imp-a.imp).map(n=>`<button class="story" data-jump="${n.t}"><div class="ring"><span>${esc(n.t)}</span></div><small>${n.day} ${n.tm}</small></button>`).join("")};stories();
 feed();moves();$("#tk").innerHTML=d.names.map(n=>`<option value="${n.t}">${n.t} — ${esc(n.co)}</option>`).join("");$("#tk").value="AEHR";$("#tk").onchange=calc;$("#loss").oninput=calc;calc();
 $("#flags").innerHTML=d.names.filter(n=>n.flag).map(n=>`<li><b>${n.t}:</b> ${esc(n.flag)}</li>`).join("")+"<li>Tue–Fri revenue consensus wasn't sourced, so it shows n/a.</li>";
 const a=d.names.find(n=>n.t=="AEHR"),ad=impD(a);$("#aehrM").innerHTML=`<div class="m"><b>±${a.imp.toFixed(1)}%</b>Implied<span>±${usd(ad)}; ${usd(a.close-ad)}–${usd(a.close+ad)}</span></div><div class="m"><b>±${a.hist}%</b>Avg move, last 5</div><div class="m"><b>18.1%</b>Short interest of float</div><div class="m"><b>~3.3</b>Beta</div>`;
@@ -37,3 +41,8 @@ $("#aehrSetup").textContent=d.aehr.setup;$("#val").innerHTML=d.aehr.valuation.ma
 $("#sources").innerHTML=d.sources.map(([t,u])=>`<li><a href="${esc(u)}" rel="noopener">${esc(t)}</a></li>`).join("");setTab();
 if(location.hash.startsWith("#t-"))setTimeout(()=>jump(location.hash.slice(3)),50)}).catch(e=>{console.error(e);banner()});
 function banner(){if(document.getElementById("errb"))return;const b=document.createElement("div");b.id="errb";b.className="callout warn small";b.innerHTML='Something didn\'t load. <a href="#" onclick="location.reload();return false">Tap to refresh</a>.';(document.querySelector("main")||document.body).prepend(b)}
+
+function status(nf){const q=(window.searchQ||"").trim(),c=document.getElementById("qcount"),none=document.getElementById("qnone");if(!c)return;const nn=window.notesCount??0;
+if(!q){c.hidden=true;none.hidden=true;return}c.hidden=false;c.textContent=`${nf} ticker${nf==1?"":"s"}${day!="All"?" on "+day:""} · ${nn} note${nn==1?"":"s"} for “${q}”`;
+none.hidden=nf+nn>0;const qd=document.getElementById("qday");qd&&(qd.textContent=day!="All"?" on "+day:"")}
+window.onSearch=()=>{if(!D)return;feed();moves();stories()};window.onNotesDrawn=()=>{if(D)status(document.querySelectorAll("#posts .post").length)};

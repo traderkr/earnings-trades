@@ -1,8 +1,9 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
-<title>Earnings Trades & Implied Moves</title><link rel="stylesheet" href="style.css?v=202610311526"></head><body>
-<header class="top"><div class="wrap"><b class="logo">earnings·moves</b><span class="muted small" id="week"></span></div></header>
+<title>Earnings Trades & Implied Moves</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css?v=202610311600"></head><body>
+<header class="top"><div class="wrap"><a href="#" class="logo" id="logo" style="color:inherit;text-decoration:none">earnings·moves</a><span class="hr"><span class="muted small" id="week"></span><button id="qbtn" class="qbtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button></span></div><div class="wrap sbar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" placeholder="Search ticker, company, note…" autocomplete="off" enterkeyhint="search" aria-label="Search"><button id="qclear" type="button" aria-label="Clear search" hidden>×</button></div></header>
 <main class="wrap">
+<p id="qcount" class="muted small qcount" hidden></p><div id="qnone" class="card none" hidden><b>No matches</b><p class="muted small">Nothing matches your search<span id="qday"></span>.</p><button class="chip" onclick="clearSearch()">Clear search</button></div>
 <div class="stories" id="stories" aria-label="Upcoming reporters"></div>
 <p class="asof muted small" id="asof"></p>
 <div class="disc small">Implied moves estimate how big a move might be, <b>not which direction</b>. Not investment advice.</div>
@@ -39,6 +40,6 @@
 <a href="#notes"><svg viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zm2 6h10M7 13h10M7 17h6" fill="none" stroke="currentColor" stroke-width="2"/></svg>Notes</a>
 <a href="#calc"><svg viewBox="0 0 24 24"><path d="M6 2h12v20H6zM8 4v4h8V4zm0 7v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm-6 4v2h2v-2zm3 0v2h2v-2zm3 0v5h2v-5zm-6 4v2h5v-2z"/></svg>Calc</a>
 <a href="#info"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>Info</a>
-</nav>
+</nav><button id="totop" class="totop" aria-label="Back to top" hidden>↑</button>
 <div id="toast" class="toast" role="status"></div>
-<script src="notes.js?v=202610311526"></script><script src="app.js?v=202610311526"></script><script>renderNotes(document.getElementById("notesList"),5)</script></body></html>
+<script src="notes.js?v=202610311600"></script><script src="search.js?v=202610311600"></script><script src="app.js?v=202610311600"></script><script>renderNotes(document.getElementById("notesList"),5)</script></body></html>
