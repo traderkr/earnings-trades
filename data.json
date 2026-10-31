@@ -1,0 +1,566 @@
+{
+ "week": "Week of Nov 2, 2026",
+ "asOf": "Prices as of Fri Oct 30, 2026 close; compiled Sat Oct 31, 2026 (ET)",
+ "names": [
+  {
+   "t": "AAPL",
+   "co": "Apple",
+   "day": "Mon",
+   "date": "Nov 2",
+   "tm": "AMC",
+   "close": 344.63,
+   "imp": 4.35,
+   "hist": 5.0,
+   "eps": "$1.98–1.99",
+   "rev": "$113.3–113.6B",
+   "drv": "December-quarter guide; iPhone / Duo demand",
+   "flag": null
+  },
+  {
+   "t": "PLTR",
+   "co": "Palantir",
+   "day": "Mon",
+   "date": "Nov 2",
+   "tm": "AMC",
+   "close": 184.11,
+   "imp": 13.25,
+   "hist": 17.0,
+   "eps": "$0.41 (Nasdaq: $0.33)",
+   "rev": "$2.17–2.18B",
+   "drv": "US commercial growth vs. a $2.160–2.164B guide",
+   "flag": null
+  },
+  {
+   "t": "AEHR",
+   "co": "Aehr Test Systems",
+   "day": "Mon",
+   "date": "Nov 2",
+   "tm": "AMC",
+   "close": 54.89,
+   "imp": 17.77,
+   "hist": 18.7,
+   "eps": "$0.11 (Nasdaq: $0.05)",
+   "rev": "$27.5–27.6M",
+   "drv": "AI Sonoma / WLBI bookings, backlog vs. the FY27 $130–150M guide",
+   "flag": null
+  },
+  {
+   "t": "TEM",
+   "co": "Tempus AI",
+   "day": "Mon",
+   "date": "Nov 2",
+   "tm": "BMO",
+   "close": 72.59,
+   "imp": 12.64,
+   "hist": null,
+   "eps": "–$0.09 (Nasdaq: –$0.32)",
+   "rev": "~$409M",
+   "drv": "Genomics and data-licensing growth; pace of loss narrowing",
+   "flag": null
+  },
+  {
+   "t": "EL",
+   "co": "Estée Lauder",
+   "day": "Mon",
+   "date": "Nov 2",
+   "tm": "BMO",
+   "close": 109.23,
+   "imp": 10.06,
+   "hist": 10.0,
+   "eps": "$0.51–0.52",
+   "rev": "$3.65–3.76B",
+   "drv": "Turnaround progress; China and travel retail",
+   "flag": null
+  },
+  {
+   "t": "CIFR",
+   "co": "Cipher Digital",
+   "day": "Mon",
+   "date": "Nov 2",
+   "tm": "BMO",
+   "close": 7.29,
+   "imp": 20.48,
+   "hist": null,
+   "eps": "–$0.31 (3 est)",
+   "rev": "n/a",
+   "drv": "Bitcoin mining to AI/HPC hosting pivot",
+   "flag": null
+  },
+  {
+   "t": "PFE",
+   "co": "Pfizer",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "BMO",
+   "close": 30.52,
+   "imp": 4.65,
+   "hist": 3.6,
+   "eps": "$0.72 (5 est)",
+   "rev": "n/a",
+   "drv": "Full-year guide; pipeline",
+   "flag": null
+  },
+  {
+   "t": "MPC",
+   "co": "Marathon Petroleum",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "BMO",
+   "close": 444.73,
+   "imp": 11.48,
+   "hist": 5.2,
+   "eps": "$25.74 (5 est)",
+   "rev": "n/a",
+   "drv": "Refining margins",
+   "flag": "Straddle uses the Nov 20 expiry, so the implied move is overstated"
+  },
+  {
+   "t": "SHOP",
+   "co": "Shopify",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "BMO",
+   "close": 157.49,
+   "imp": 13.92,
+   "hist": 13.6,
+   "eps": "$0.33 (13 est)",
+   "rev": "n/a",
+   "drv": "GMV growth; holiday outlook",
+   "flag": null
+  },
+  {
+   "t": "BKNG",
+   "co": "Booking Holdings",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "AMC",
+   "close": 148.13,
+   "imp": 7.54,
+   "hist": 6.6,
+   "eps": "$4.48 (11 est)",
+   "rev": "n/a",
+   "drv": "Room nights; Q4 outlook",
+   "flag": "Close looks unusual (possible split); not independently verified"
+  },
+  {
+   "t": "AMD",
+   "co": "AMD",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "AMC",
+   "close": 504.8,
+   "imp": 8.9,
+   "hist": 10.6,
+   "eps": "$1.68 (13 est)",
+   "rev": "n/a",
+   "drv": "Data-center GPU ramp",
+   "flag": null
+  },
+  {
+   "t": "ANET",
+   "co": "Arista Networks",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "AMC",
+   "close": 168.86,
+   "imp": 10.52,
+   "hist": 12.0,
+   "eps": "$0.99 (9 est)",
+   "rev": "n/a",
+   "drv": "AI networking demand; guide",
+   "flag": null
+  },
+  {
+   "t": "SMCI",
+   "co": "Super Micro Computer",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "AMC",
+   "close": 32.95,
+   "imp": 14.24,
+   "hist": 16.0,
+   "eps": "$1.04 (6 est)",
+   "rev": "n/a",
+   "drv": "AI server shipments and margins",
+   "flag": null
+  },
+  {
+   "t": "ALAB",
+   "co": "Astera Labs",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "AMC",
+   "close": 258.7,
+   "imp": 14.39,
+   "hist": 17.5,
+   "eps": "$0.83 (8 est)",
+   "rev": "n/a",
+   "drv": "AI connectivity growth",
+   "flag": null
+  },
+  {
+   "t": "NVTS",
+   "co": "Navitas Semiconductor",
+   "day": "Tue",
+   "date": "Nov 3",
+   "tm": "AMC",
+   "close": 8.48,
+   "imp": 14.48,
+   "hist": null,
+   "eps": "–$0.08 (2 est)",
+   "rev": "n/a",
+   "drv": "GaN / AI data-center power pivot",
+   "flag": null
+  },
+  {
+   "t": "UBER",
+   "co": "Uber",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "BMO",
+   "close": 65.25,
+   "imp": 8.08,
+   "hist": 8.8,
+   "eps": "$0.94 (7 est)",
+   "rev": "n/a",
+   "drv": "Gross bookings; autonomous-vehicle commentary",
+   "flag": null
+  },
+  {
+   "t": "DDOG",
+   "co": "Datadog",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "BMO",
+   "close": 235.27,
+   "imp": 15.1,
+   "hist": 15.2,
+   "eps": "$0.18 (10 est)",
+   "rev": "n/a",
+   "drv": "Usage growth; AI-native customers",
+   "flag": null
+  },
+  {
+   "t": "RIOT",
+   "co": "Riot Platforms",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "BMO",
+   "close": 12.81,
+   "imp": 14.64,
+   "hist": 11.9,
+   "eps": "–$0.24 (7 est)",
+   "rev": "n/a",
+   "drv": "Bitcoin price; HPC/data-center plans",
+   "flag": null
+  },
+  {
+   "t": "QCOM",
+   "co": "Qualcomm",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "AMC",
+   "close": 164.79,
+   "imp": 9.76,
+   "hist": 7.5,
+   "eps": "$1.46 (9 est)",
+   "rev": "n/a",
+   "drv": "Handset guide; Apple modem roll-off",
+   "flag": null
+  },
+  {
+   "t": "CAVA",
+   "co": "CAVA Group",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "AMC",
+   "close": 58.74,
+   "imp": 12.31,
+   "hist": 14.3,
+   "eps": "$0.12 (9 est)",
+   "rev": "n/a",
+   "drv": "Same-restaurant sales",
+   "flag": null
+  },
+  {
+   "t": "ARM",
+   "co": "Arm Holdings",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "AMC",
+   "close": 205.97,
+   "imp": 12.27,
+   "hist": 14.6,
+   "eps": "$0.22 (7 est)",
+   "rev": "n/a",
+   "drv": "Royalty growth; licensing",
+   "flag": null
+  },
+  {
+   "t": "COHR",
+   "co": "Coherent",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "AMC",
+   "close": 210.32,
+   "imp": 13.41,
+   "hist": 8.0,
+   "eps": "$1.78 (8 est)",
+   "rev": "n/a",
+   "drv": "Datacom optics demand",
+   "flag": null
+  },
+  {
+   "t": "APP",
+   "co": "AppLovin",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "AMC",
+   "close": 228.5,
+   "imp": 18.44,
+   "hist": 22.3,
+   "eps": "$3.94 (9 est)",
+   "rev": "n/a",
+   "drv": "Ad-tech growth; e-commerce expansion",
+   "flag": null
+  },
+  {
+   "t": "AMC",
+   "co": "AMC Entertainment",
+   "day": "Wed",
+   "date": "Nov 4",
+   "tm": "AMC",
+   "close": 3.06,
+   "imp": 12.93,
+   "hist": null,
+   "eps": "$0.11 (5 est)",
+   "rev": "n/a",
+   "drv": "Box office; balance sheet",
+   "flag": null
+  },
+  {
+   "t": "MP",
+   "co": "MP Materials",
+   "day": "Thu",
+   "date": "Nov 5",
+   "tm": "AMC",
+   "close": 39.57,
+   "imp": 8.74,
+   "hist": 9.3,
+   "eps": "–$0.04 (4 est)",
+   "rev": "n/a",
+   "drv": "Rare-earth magnet ramp",
+   "flag": null
+  },
+  {
+   "t": "LITE",
+   "co": "Lumentum",
+   "day": "Thu",
+   "date": "Nov 5",
+   "tm": "AMC",
+   "close": 840.7,
+   "imp": 11.47,
+   "hist": 11.3,
+   "eps": "$3.82 (6 est)",
+   "rev": "n/a",
+   "drv": "AI optical transceivers",
+   "flag": null
+  },
+  {
+   "t": "NET",
+   "co": "Cloudflare",
+   "day": "Thu",
+   "date": "Nov 5",
+   "tm": "AMC",
+   "close": 280.7,
+   "imp": 15.32,
+   "hist": 14.7,
+   "eps": "$0.02 (9 est)",
+   "rev": "n/a",
+   "drv": "Large-customer growth",
+   "flag": null
+  },
+  {
+   "t": "TEAM",
+   "co": "Atlassian",
+   "day": "Thu",
+   "date": "Nov 5",
+   "tm": "AMC",
+   "close": 191.72,
+   "imp": 15.38,
+   "hist": 13.7,
+   "eps": "$0.24 (6 est)",
+   "rev": "n/a",
+   "drv": "Cloud migration; seat trends",
+   "flag": null
+  },
+  {
+   "t": "IREN",
+   "co": "IREN",
+   "day": "Thu",
+   "date": "Nov 5",
+   "tm": "AMC",
+   "close": 23.95,
+   "imp": 17.99,
+   "hist": 20.6,
+   "eps": "–$0.46 (3 est)",
+   "rev": "n/a",
+   "drv": "AI cloud contracts vs. mining",
+   "flag": null
+  },
+  {
+   "t": "AAOI",
+   "co": "Applied Optoelectronics",
+   "day": "Thu",
+   "date": "Nov 5",
+   "tm": "AMC",
+   "close": 69.05,
+   "imp": 18.79,
+   "hist": 24.9,
+   "eps": "$0.08 (3 est)",
+   "rev": "n/a",
+   "drv": "800G transceiver ramp",
+   "flag": null
+  },
+  {
+   "t": "MRNA",
+   "co": "Moderna",
+   "day": "Fri",
+   "date": "Nov 6",
+   "tm": "BMO",
+   "close": 221.72,
+   "imp": 10.8,
+   "hist": 10.8,
+   "eps": "–$1.10 (7 est)",
+   "rev": "n/a",
+   "drv": "Vaccine sales; cost cuts; pipeline",
+   "flag": "Close looks unusual; not independently verified"
+  }
+ ],
+ "aehr": {
+  "scorecard": [
+   [
+    "Jul 14 '26",
+    "$0.11 vs ~0.00/–0.06 (beat)",
+    "$18.84M vs $18.69–19.06M (mixed)",
+    "FY27 guide $130–150M; record $60.7M bookings; >$100M backlog",
+    "+21.9%",
+    "±21.6%"
+   ],
+   [
+    "Apr 7 '26",
+    "–0.05 vs –0.07 (beat)",
+    "$10.31M vs $10.85M (miss)",
+    "",
+    "+25.7%",
+    "±23.0%"
+   ],
+   [
+    "Jan 8 '26",
+    "–0.04 vs –0.08 (beat)",
+    "$9.88M vs $11.45M (miss)",
+    "2H FY26 guide reinstated $25–30M",
+    "+15.9%",
+    "n/a"
+   ],
+   [
+    "Oct 6 '25",
+    "0.01 vs 0.01 (in line)",
+    "$11.00M vs $13.69M (miss)",
+    "",
+    "–17.4%",
+    "±23.7%"
+   ],
+   [
+    "Jul 8 '25",
+    "–0.01 vs –0.02 (beat)",
+    "$14.10M vs $14.83M (miss)",
+    "",
+    "–12.4%",
+    "±22.7%"
+   ],
+   [
+    "Apr 8 '25",
+    "0.07 vs 0.01 (beat)",
+    "$18.31M vs $17.76M (beat)",
+    "",
+    "n/a",
+    "n/a"
+   ],
+   [
+    "Jan 13 '25",
+    "–0.01 vs 0.01 (miss)",
+    "$21.43M",
+    "",
+    "n/a",
+    "n/a"
+   ]
+  ],
+  "setup": "Down about 32% in a month after Teradyne launched Titan HP; UBS downgrade Oct 22. New orders: $6M Sonoma (Oct 7) and $22M (August). Insider sales $62.5M. 52-week range $18.70–147.40. Short interest 18.1% of float (Oct 15). Beta ~3.3. Quarter consensus $0.11 EPS on $27.5–27.6M revenue.",
+  "valuation": [
+   [
+    "EV/sales TTM",
+    "33.7× vs FORM 6.6×, TER 8.5×, COHU 3.9×"
+   ],
+   [
+    "Forward P/E",
+    "71.3× vs peers 22–26×"
+   ],
+   [
+    "What the price implies",
+    "~$255M revenue at the peer median vs FY27 guide of $130–150M"
+   ],
+   [
+    "Peer-multiple fair value",
+    "~$19–42 (median ~$31)"
+   ],
+   [
+    "Analyst targets",
+    "$110–175, mean $128 (stale, Sep 10)"
+   ]
+  ],
+  "risks": "Top 5 customers ≈70% of revenue; FY27 guide needs +160–200% growth; share count up ~8%; insider selling; 18% short interest; only 3 analysts cover FY27."
+ },
+ "sources": [
+  [
+   "EarningsMoves — expected moves, dates, Nasdaq EPS consensus",
+   "https://earningsmoves.com/"
+  ],
+  [
+   "EarningsWatcher — earnings this week (historical avg moves)",
+   "https://earnings-watcher.com/earnings-this-week"
+  ],
+  [
+   "Exa — daily closing prices Oct 30",
+   "https://exa.ai/library/markets/stock/AAPL?date=2026-10-30&view=daily"
+  ],
+  [
+   "Apple Investor Relations",
+   "https://investor.apple.com/"
+  ],
+  [
+   "Palantir Investor Relations",
+   "https://investors.palantir.com/"
+  ],
+  [
+   "Aehr Test Systems Investor Relations",
+   "https://ir.aehr.com/"
+  ],
+  [
+   "Tempus Investor Relations",
+   "https://investors.tempus.com/"
+  ],
+  [
+   "Estée Lauder Investor Relations",
+   "https://www.elcompanies.com/en/investors"
+  ],
+  [
+   "MarketBeat — earnings and consensus",
+   "https://www.marketbeat.com/earnings/"
+  ],
+  [
+   "Schwab 24/5 trading",
+   "https://www.schwab.com/24-hour-trading"
+  ]
+ ]
+}
