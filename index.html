@@ -1,29 +1,44 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
 <title>Earnings Trades & Implied Moves</title><link rel="stylesheet" href="style.css"></head><body>
-<header><h1>Earnings Trades &amp; Implied Moves — <span id="week"></span></h1><p class="muted" id="asof"></p>
-<nav><a href="#notes"><b>Notes</b></a><a href="#sched">Schedule</a><a href="#table">Table</a><a href="#chart">Chart</a><a href="#calc">Sizing</a><a href="#when">When to trade</a><a href="#aehr">AEHR</a><a href="#src">Sources</a></nav></header>
-<main>
-<div class="callout"><b>Summary.</b> <span id="summary"></span> Implied moves are option-market estimates of move <i>size</i> and do not predict direction. Not investment advice.</div>
-<section id="notes"><h2>Notes <a class="small" href="notes.html">(all notes)</a></h2><div id="notesList"></div></section>
-<section id="sched"><h2>By-day schedule</h2><div id="days" class="days"></div></section>
-<section id="table"><h2>Watchlist</h2>
-<div class="controls"><div class="seg" id="viewSeg"></div><div class="seg" id="daySeg"></div></div>
-<p class="muted small">Click a column header to sort. Implied÷Hist ≥1.3× is shaded rich and ≤0.85× cheap. ⚠ = see flags.</p>
-<div class="scroll"><table id="tbl"></table></div>
-<div class="callout warn"><b>Flags.</b><ul id="flags"></ul></div>
-<p class="muted small">EPS: the Monday names use the consensus gathered earlier (Zacks, MarketBeat, company guides), with the Nasdaq figure in brackets where it differs. The Tue–Fri names use the Nasdaq consensus shown on EarningsMoves (estimate count in brackets). Hist avg comes from EarningsWatcher (AEHR's from Arbtrage, last 5 reports).</p></section>
-<section id="chart"><h2>Implied move, largest first</h2><div id="bars"></div></section>
-<section id="calc"><h2>Position-sizing calculator</h2>
-<div class="controls"><label>Max loss ($) <input id="loss" type="number" value="1000" min="0"></label><label>Ticker <select id="tk"></select></label></div>
+<header class="top"><div class="wrap"><b class="logo">earnings·moves</b><span class="muted small" id="week"></span></div></header>
+<main class="wrap">
+<div class="stories" id="stories" aria-label="Upcoming reporters"></div>
+<p class="asof muted small" id="asof"></p>
+<div class="disc small">Implied moves estimate how big a move might be, <b>not which direction</b>. Not investment advice.</div>
+
+<section id="feed"><div class="chips" id="dayChips"></div><div id="posts"></div></section>
+
+<section id="moves" class="card"><h2>Implied moves</h2>
+<div class="chips" id="sortChips"></div><div id="moveList"></div>
+<p class="muted small">Ratio = implied ÷ historical average. A <span class="pill rich">rich</span> ratio is ≥1.3× and a <span class="pill cheap">cheap</span> one is ≤0.85×. ⚠ = see flags.</p></section>
+
+<section id="notes" class="card"><h2>Notes <a class="small" href="notes.html">See all</a></h2><div id="notesList"></div></section>
+
+<section id="calc" class="card"><h2>Position sizing</h2>
+<label class="fld">Max loss ($)<input id="loss" type="number" inputmode="decimal" value="1000" min="0"></label>
+<label class="fld">Ticker<select id="tk"></select></label>
 <div class="metrics" id="metrics"></div><div class="callout warn" id="optnote"></div></section>
-<section id="when"><h2>When you can trade it</h2><div class="scroll"><table>
-<tr><th>Timing</th><th>Before the print</th><th>Reaction</th><th>Options</th></tr>
-<tr><td><b>BMO</b> (before market open)</td><td>Overnight sessions the night before, from 8pm ET (e.g. Schwab 24/5 via thinkorswim, Robinhood 24 Hour Market, IBKR Overnight), or pre-market 4–9:30am ET</td><td>Pre-market right after the release, then the regular open</td><td>No options before the print, since options don't trade overnight or pre-market. Shares only</td></tr>
-<tr><td><b>AMC</b> (after market close)</td><td>Regular session 9:30am–4pm ET on report day, plus pre-market and overnight</td><td>After-hours 4–8pm ET, overnight, next pre-market</td><td>Yes, during the regular session before the close</td></tr></table></div>
-<div class="callout warn"><b>Execution.</b> Extended and overnight sessions take limit orders only, with thin liquidity, wide spreads, and quotes that can jump. Check that your broker and account type allow single stocks, options, and extended-hours trading; some retirement accounts don't.</div></section>
-<section id="aehr"><h2>AEHR deep dive — Mon Nov 2 AMC</h2><div class="metrics" id="aehrM"></div>
-<div class="scroll"><table id="score"></table></div><p id="aehrSetup"></p>
-<div class="callout"><b>Valuation view</b><dl id="val"></dl></div><div class="callout bad"><b>Risks.</b> <span id="risks"></span></div></section>
-<section id="src"><h2>Sources</h2><ul id="sources"></ul>
-<p class="muted small">Not investment advice. Implied moves come from at-the-money straddle mid prices (CBOE delayed data, Oct 30) and do not predict direction. Data may contain errors; verify before trading.</p></section>
-</main><script src="notes.js"></script><script src="app.js"></script><script>renderNotes(document.getElementById("notesList"),5)</script></body></html>
+
+<section id="info">
+<div class="card"><h2>When you can trade it</h2>
+<div class="kv"><b>BMO</b> (before market open)<ul><li>Before the print: overnight sessions from 8pm ET the night before (e.g. Schwab 24/5 via thinkorswim, Robinhood 24 Hour Market, IBKR Overnight), or pre-market 4–9:30am ET.</li><li>Reaction: pre-market right after the release, then the open.</li><li><b>No options before the print, since options don't trade overnight or pre-market.</b> Shares only.</li></ul></div>
+<div class="kv"><b>AMC</b> (after market close)<ul><li>Before the print: regular session 9:30am–4pm ET, plus pre-market and overnight.</li><li>Reaction: after-hours 4–8pm ET, overnight, next pre-market.</li><li>Options: yes, during the regular session.</li></ul></div>
+<div class="callout warn"><b>Execution.</b> Extended and overnight sessions take limit orders only, with thin liquidity, wide spreads, and quotes that can jump. Check that your broker and account type allow single stocks, options, and extended-hours trading; some retirement accounts don't.</div></div>
+<div class="card" id="aehr"><h2>AEHR deep dive · Mon AMC</h2><div class="metrics" id="aehrM"></div><h3>Scorecard</h3><div id="score"></div><p id="aehrSetup"></p>
+<h3>Valuation view</h3><dl id="val"></dl><div class="callout bad"><b>Risks.</b> <span id="risks"></span></div></div>
+<div class="card" id="flagsCard"><h2>Flags</h2><ul id="flags"></ul>
+<p class="muted small">EPS: the Monday names use the consensus gathered earlier (Zacks, MarketBeat, company guides), with the Nasdaq figure in brackets where it differs. The Tue–Fri names use the Nasdaq consensus shown on EarningsMoves (estimate count in brackets). Hist avg comes from EarningsWatcher (AEHR's from Arbtrage, last 5 reports).</p></div>
+<div class="card" id="src"><h2>Sources</h2><ul id="sources"></ul>
+<p class="muted small">Not investment advice. Implied moves come from at-the-money straddle mid prices (CBOE delayed data, Oct 30) and do not predict direction. Data may contain errors; verify before trading.</p></div>
+</section>
+</main>
+<nav class="tabs" id="tabs">
+<a href="#feed"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>Feed</a>
+<a href="#moves"><svg viewBox="0 0 24 24"><path d="M4 20V10h3v10zm6 0V4h3v16zm6 0v-7h3v7z"/></svg>Moves</a>
+<a href="#notes"><svg viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zm2 6h10M7 13h10M7 17h6" fill="none" stroke="currentColor" stroke-width="2"/></svg>Notes</a>
+<a href="#calc"><svg viewBox="0 0 24 24"><path d="M6 2h12v20H6zM8 4v4h8V4zm0 7v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm-6 4v2h2v-2zm3 0v2h2v-2zm3 0v5h2v-5zm-6 4v2h5v-2z"/></svg>Calc</a>
+<a href="#info"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>Info</a>
+</nav>
+<div id="toast" class="toast" role="status"></div>
+<script src="notes.js"></script><script src="app.js"></script><script>renderNotes(document.getElementById("notesList"),5)</script></body></html>
