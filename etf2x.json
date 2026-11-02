@@ -1,0 +1,267 @@
+{
+ "asof": "2026-11-02",
+ "snapshot": "Mon Nov 2, 2026 ~11:40 AM ET (Yahoo Finance, delayed ~15 min)",
+ "source": "Fund list: etfiq.com single-stock leveraged ETF list (Oct 30, 2026); issuer pages checked Nov 2.",
+ "groups": [
+  {
+   "u": "AAPL",
+   "name": "Apple",
+   "tv": "NASDAQ-AAPL",
+   "report": "Mon Nov 2 AMC",
+   "funds": [
+    {
+     "t": "AAPU",
+     "iss": "Direxion",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Nasdaq",
+     "url": "https://www.direxion.com/product/daily-aapl-bull-and-bear-leveraged-single-stock-etfs",
+     "px": 45.76,
+     "vol": 223044,
+     "at": "2026-11-02 11:38",
+     "thin": false
+    },
+    {
+     "t": "AAPB",
+     "iss": "GraniteShares",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Nasdaq",
+     "url": "https://graniteshares.com/institutional/us/en-us/etfs/aapb/",
+     "px": 44.925,
+     "vol": 19348,
+     "at": "2026-11-02 11:38",
+     "thin": false
+    },
+    {
+     "t": "AAPX",
+     "iss": "T-REX",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Cboe",
+     "url": "https://www.rexshares.com/aapx/",
+     "px": 41.43,
+     "vol": 23068,
+     "at": "2026-11-02 11:29",
+     "thin": false
+    },
+    {
+     "t": "AAPE",
+     "iss": "Leverage Shares",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Cboe",
+     "url": "https://leverageshares.com/us/etfs/leverage-shares-2x-long-aapl-daily-etf/",
+     "px": 16.85,
+     "vol": 15993,
+     "at": "2026-11-02 11:11",
+     "thin": false
+    },
+    {
+     "t": "IOSX",
+     "iss": "Corgi",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Cboe",
+     "url": "https://finance.yahoo.com/quote/IOSX",
+     "px": 35.38,
+     "vol": 5,
+     "at": "2026-11-02 10:00",
+     "thin": true
+    },
+    {
+     "t": "AAPD",
+     "iss": "Direxion",
+     "dir": "short",
+     "lev": "-1x",
+     "ex": "Nasdaq",
+     "url": "https://www.direxion.com/product/daily-aapl-bull-and-bear-leveraged-single-stock-etfs",
+     "px": 10.1,
+     "vol": 3592437,
+     "at": "2026-11-02 11:38",
+     "thin": false
+    }
+   ],
+   "note": ""
+  },
+  {
+   "u": "PLTR",
+   "name": "Palantir",
+   "tv": "NASDAQ-PLTR",
+   "report": "Mon Nov 2 AMC",
+   "funds": [
+    {
+     "t": "PLTU",
+     "iss": "Direxion",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Nasdaq",
+     "url": "https://www.direxion.com/product/daily-pltr-bull-and-bear-leveraged-single-stock-etfs",
+     "px": 53.348,
+     "vol": 205325,
+     "at": "2026-11-02 11:39",
+     "thin": false
+    },
+    {
+     "t": "PTIR",
+     "iss": "GraniteShares",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Nasdaq",
+     "url": "https://graniteshares.com/institutional/us/en-us/etfs/ptir/",
+     "px": 19.92,
+     "vol": 1204414,
+     "at": "2026-11-02 11:39",
+     "thin": false
+    },
+    {
+     "t": "PLTG",
+     "iss": "Leverage Shares",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Nasdaq",
+     "url": "https://leverageshares.com/us/etfs/leverage-shares-2x-long-pltr-daily-etf/",
+     "px": 18.67,
+     "vol": 44716,
+     "at": "2026-11-02 11:36",
+     "thin": false
+    },
+    {
+     "t": "PLTA",
+     "iss": "ProShares",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "NYSE Arca",
+     "url": "https://www.proshares.com/our-etfs/leveraged-and-inverse/plta",
+     "px": 20.14,
+     "vol": 15703,
+     "at": "2026-11-02 11:11",
+     "thin": false
+    },
+    {
+     "t": "PLTL",
+     "iss": "Corgi",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Cboe",
+     "url": "https://finance.yahoo.com/quote/PLTL",
+     "px": 62.23,
+     "vol": 305,
+     "at": "2026-11-02 10:00",
+     "thin": true
+    },
+    {
+     "t": "PLTZ",
+     "iss": "Defiance",
+     "dir": "short",
+     "lev": "-2x",
+     "ex": "Nasdaq",
+     "url": "https://www.defianceetfs.com/pltz/",
+     "px": 7.695,
+     "vol": 1654064,
+     "at": "2026-11-02 11:39",
+     "thin": false
+    },
+    {
+     "t": "PLTD",
+     "iss": "Direxion",
+     "dir": "short",
+     "lev": "-1x",
+     "ex": "Nasdaq",
+     "url": "https://www.direxion.com/product/daily-pltr-bull-and-bear-leveraged-single-stock-etfs",
+     "px": 4.795,
+     "vol": 17550074,
+     "at": "2026-11-02 11:37",
+     "thin": false
+    }
+   ],
+   "note": ""
+  },
+  {
+   "u": "VRTX",
+   "name": "Vertex Pharmaceuticals",
+   "tv": "NASDAQ-VRTX",
+   "report": "Mon Nov 2 AMC",
+   "funds": [],
+   "note": ""
+  },
+  {
+   "u": "WMB",
+   "name": "Williams Cos.",
+   "tv": "NYSE-WMB",
+   "report": "Mon Nov 2 AMC",
+   "funds": [],
+   "note": ""
+  },
+  {
+   "u": "FANG",
+   "name": "Diamondback Energy",
+   "tv": "NASDAQ-FANG",
+   "report": "Mon Nov 2 AMC",
+   "funds": [],
+   "note": ""
+  },
+  {
+   "u": "ON",
+   "name": "ON Semiconductor",
+   "tv": "NASDAQ-ON",
+   "report": "Mon Nov 2 AMC",
+   "funds": [
+    {
+     "t": "ONG",
+     "iss": "Leverage Shares",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Cboe",
+     "url": "https://leverageshares.com/us/etfs/leverage-shares-2x-long-on-daily-etf/",
+     "px": 3.91,
+     "vol": 38532,
+     "at": "2026-11-02 11:35",
+     "thin": false
+    },
+    {
+     "t": "ONX",
+     "iss": "Tradr",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Cboe",
+     "url": "https://www.tradretfs.com/onx",
+     "px": 6.41,
+     "vol": 7262,
+     "at": "2026-11-02 10:47",
+     "thin": false
+    }
+   ],
+   "note": ""
+  },
+  {
+   "u": "ROKU",
+   "name": "Roku",
+   "tv": "NASDAQ-ROKU",
+   "report": "Mon Nov 2 AMC",
+   "funds": [],
+   "note": "Defiance Daily Target 2X Long ROKU ETF was filed (Mar 2026) but is not trading."
+  },
+  {
+   "u": "AEHR",
+   "name": "Aehr Test Systems",
+   "tv": "NASDAQ-AEHR",
+   "report": "Mon Nov 2 AMC",
+   "funds": [
+    {
+     "t": "AEHG",
+     "iss": "Leverage Shares",
+     "dir": "long",
+     "lev": "2x",
+     "ex": "Cboe",
+     "url": "https://leverageshares.com/us/etfs/leverage-shares-2x-long-aehr-daily-etf/",
+     "px": 2.3,
+     "vol": 1969058,
+     "at": "2026-11-02 11:39",
+     "thin": false
+    }
+   ],
+   "note": ""
+  }
+ ]
+}
