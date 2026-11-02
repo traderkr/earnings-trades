@@ -3,7 +3,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 let stories=()=>{},D,day="All",sortK="imp";function rank(n){const q=(window.searchQ||"").trim().toLowerCase();if(!q)return 1;const t=n.t.toLowerCase();if(t==q)return 5;if(t.startsWith(q))return 4;if(n.co.toLowerCase().startsWith(q))return 3;
 const hay=[n.t,n.co,n.day,n.date,n.day+" "+n.date,n.tm,n.drv,n.flag||"",n.eps,n.rev,{Mon:"monday",Tue:"tuesday",Wed:"wednesday",Thu:"thursday",Fri:"friday"}[n.day],n.tm=="BMO"?"before market open":"after market close"].join(" | ").toLowerCase();
 return hay.includes(q)?(n.tm.toLowerCase()==q?2:1):0}
-const tv=t=>`<a class="tvl" href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(String(t).replace(/-/g,"."))}" target="_blank" rel="noopener" title="Open ${esc(t)} chart on TradingView">${esc(t)}</a>`;window.tvLink=tv;
+const tv=t=>`<a class="tvl" href="https://www.tradingview.com/chart/c1m6PRCO/?symbol=${encodeURIComponent(String(t).replace(/-/g,"."))}" target="_blank" rel="noopener" title="Open ${esc(t)} chart on TradingView">${esc(t)}</a>`;window.tvLink=tv;
 const byRank=(a,b)=>rank(b)-rank(a);
 const impD=n=>n.close*n.imp/100,ratio=n=>n.hist?n.imp/n.hist:null;
 function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),1600)}
