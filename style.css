@@ -53,4 +53,6 @@ html{scroll-padding-top:110px}.qcount{margin:8px 2px 0}.none{text-align:center}[
 .toptab{font-size:.8rem;font-weight:600;text-decoration:none;color:var(--fg);border:1px solid var(--bd);border-radius:14px;padding:4px 10px;}.toptab.on{background:var(--acc);border-color:var(--acc);color:var(--bg)}
 .etab{overflow-x:auto}.etab table{width:100%;border-collapse:collapse;font-size:.85rem}.etab th,.etab td{text-align:left;padding:6px 6px;border-top:1px solid var(--bd);vertical-align:top;}.etab th{font-size:.72rem;color:var(--mut,#888);font-weight:600}.lg{color:#1a9e55}.sh{color:#d0453b}.thin{font-size:.65rem;background:#f5c04a33;color:#b07d00;border-radius:8px;padding:1px 6px}
 @media(max-width:420px){.etab td:nth-child(4),.etab th:nth-child(4){display:none}}
-.etf2x .wrap{max-width:640px}.etab table{table-layout:auto}.etab th,.etab td{padding:5px 4px}.etab td:nth-child(2){white-space:normal;word-break:break-word}.etab td:not(:nth-child(2)){white-space:nowrap}.etab .ftk{padding:0 6px}
+.etf2x .wrap{max-width:640px}.etab table{table-layout:auto}.etab th,.etab td{padding:5px 4px}.etab td:nth-child(2){white-space:normal;word-break:normal;overflow-wrap:normal;min-width:5.5em}.etab td:not(:nth-child(2)){white-space:nowrap}.etab .ftk{padding:0 6px}
+.etf2x .card h2 .ftk{white-space:nowrap;flex:0 0 auto}
+@media(max-width:420px){.etab table{font-size:.74rem}.etab td:nth-child(3){white-space:normal}.etab th,.etab td{padding:5px 3px}.etab td:nth-child(2){min-width:0}}
